@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+backend/.venv/
+
+# Environment variables
+backend/.env
+
+# Uploads
+backend/uploads/
+backend/app/test_img
+
+# OCR output
+backend/output/
+
+# Frontend
+frontend/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
