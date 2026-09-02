@@ -10,6 +10,7 @@ images=[
         "backend/app/test_img/dl7back_face.jpg"
            ]
 
+
 for image in images:
     print(f"\n=====>{image}")
     ocr_data=extract_text(image)

@@ -1,7 +1,29 @@
 import re
 import math
-
+from difflib import SequenceMatcher
 DATE_PATTERN=r"\d{2}[-/.]\d{2}[-/.]\d{4}"
+
+def normalize_text(text):
+    text = text.lower()
+    text = text.strip()
+    text = re.sub(r"\s+", " ", text)
+
+    return text
+
+def text_similarity(text1, text2):
+    return SequenceMatcher(
+        None,
+        normalize_text(text1),
+        normalize_text(text2)
+    ).ratio()
+
+DOB_LABEL = "date of birth"
+DOB_LABEL_THRESHOLD = 0.5
+
+def is_dob_label(text):
+    similarity = text_similarity(text, DOB_LABEL)
+
+    return similarity >= DOB_LABEL_THRESHOLD
 
 # def extract_dob(ocr_data):
 #     for i, item in enumerate(ocr_data):
@@ -92,7 +114,7 @@ def find_dob_candidate(ocr_data):
     for item in ocr_data:
         text = item["text"].strip()
 
-        if text.lower() == "date of birth":
+        if is_dob_label(text):
             dob_label_box = item["box"]
 
         if re.fullmatch(DATE_PATTERN, text):
@@ -104,7 +126,7 @@ def find_dob_candidate(ocr_data):
     valid_candidates = []
 
     for candidate in date_candidates:
-        if is_below_and_aligned(
+        if is_horizontally_aligned(
             dob_label_box,
             candidate["box"]
         ):
