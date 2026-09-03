@@ -2,6 +2,9 @@ from fastapi import APIRouter, HTTPException
 
 from app.schemas import ExtractionRequest
 from app.services.image import decode_base64_image
+from app.services.ocr import extract_text
+from app.services.extractor import find_dob_candidate
+
 
 router = APIRouter()
 
@@ -17,10 +20,13 @@ async def extract(request: ExtractionRequest):
             detail=str(error)
         )
 
-    height, width = image.shape[:2]
+    ocr_data = extract_text(image)
+
+    dob = find_dob_candidate(ocr_data)
 
     return {
-        "message": "Image received successfully",
-        "width": width,
-        "height": height
+        "success": True,
+        "data": {
+            "date_of_birth": dob
+        }
     }
