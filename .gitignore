@@ -1,23 +1,135 @@
-# Python
-__pycache__/
-*.pyc
-
-# Virtual environment
-backend/.venv/
-
-# Environment variables
-backend/.env
-
-# Uploads
-backend/uploads/
-backend/app/test_img
-
-# OCR output
-backend/output/
-
-# Frontend
-frontend/node_modules/
-
-# OS
+# ==========================================
+# Operating System Files
+# ==========================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
+
+# ==========================================
+# Editor & IDE Settings
+# ==========================================
+.vscode/
+.idea/
+.claude/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# ==========================================
+# Python & Backend
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.pyd
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+*/.venv/
+venv/
+*/venv/
+env/
+*/env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+!.env.example
+
+# OCR / Machine Learning Model Caches & Checkpoints
+.paddlex/
+.paddleocr/
+ppocr/
+inference/
+*.pdparams
+*.pdmodel
+*.pdopt
+*.onnx
+
+# Uploads, Outputs & Temporary Storage
+uploads/
+backend/uploads/
+output/
+backend/output/
+temp/
+tmp/
+*.log
+*.tmp
+*.temp
+
+# Private Test Images & Identity Documents
+backend/app/test_img*/
+backend/app/test_img_DL/
+backend/app/test_img_adhar/
+*.pdf
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ==========================================
+# Node.js & React Native (Expo)
+# ==========================================
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Expo
+.expo/
+*/.expo/
+.expo-shared/
+web-build/
+expo-env.d.ts
+
+# Native builds & keystores
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+/frontend/ios/
+/frontend/android/
+*.apk
+*.aab
+
+# Metro bundler
+.metro-health-check*
