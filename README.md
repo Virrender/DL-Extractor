@@ -149,6 +149,3 @@ All test assertions will execute and verify the extraction pipelines.
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
